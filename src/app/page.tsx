@@ -1,5 +1,3 @@
-'use client'
-
 import Image from 'next/image';
 import { Montserrat } from '@next/font/google';
 
@@ -13,8 +11,7 @@ const montserrat = Montserrat(
   }
 );
 
-export const Home = () => {
-
+export default function Home() {
   const getWorkExperience = () => {
     const currentYear = new Date().getFullYear();
     return currentYear - 2016;
@@ -59,5 +56,3 @@ export const Home = () => {
     </main>
   )
 };
-
-export default Home;
