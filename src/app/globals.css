@@ -91,11 +91,18 @@ a {
   height: 3rem;
   margin: 0 0.5rem;
   padding: 1rem;
-  border: 1px solid #505050;
-  color: #505050;
+  border: 2px solid transparent;
+  color: #fff;
   font: 400 0.9rem 'Montserrat', sans-serif;
+  transition: all .2s ease-in;
+  background: #F11A7B;
+}
+
+.button:hover {
+  color: #505050;
+  border: 2px solid #F11A7B;
+  box-shadow: 3px 3px 0 #F11A7B;
   background: #fff;
-  box-shadow: 5px 5px 0 #F11A7B;
 }
 
 .button::before {
