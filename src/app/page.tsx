@@ -1,95 +1,63 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+'use client'
 
-export default function Home() {
+import Image from 'next/image';
+import { Montserrat } from '@next/font/google';
+
+import me from '../assets/me.jpeg';
+
+const montserrat = Montserrat(
+  {
+    subsets: ['latin'],
+    weight: ['400', '700'],
+    style: 'normal'
+  }
+);
+
+export const Home = () => {
+
+  const getWorkExperience = () => {
+    const currentYear = new Date().getFullYear();
+    return currentYear - 2016;
+  }
+
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
+    <main>
+      <section id='about' className='about'>
+        <div className='hero'>
+          <Image
+            src={me}
+            alt="Ygor Fonseca"
+            className='me'
+          />
+          <div className="intro">
+            <h1 className={`title ${montserrat.className}`}>Ygor Fonseca</h1>
+            <p className={`text ${montserrat.className}`}>
+              Front-End Specialist delivering digital products for {getWorkExperience()} years. React and coffee lover.
+              <br />
+              <span className='previous-job'>
+                Former Co-Founder at
+                <a
+                  href="https://www.1sti.com.br/"
+                  target='_blank'
+                  className='previous-company'
+                >
+                  1STi
+                </a>.
+              </span>
+            </p>
+          </div>
+        </div>
+        <div className="documents">
+          <a href="/documents/Ygor_Fonseca_Resume.pdf" download className="button">
+            Resume
+          </a>
+          <a href="/documents/Ygor_Fonseca_Letter.pdf" download className="button">
+            Cover Letter
           </a>
         </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
+      </section>
     </main>
   )
-}
+};
+
+export default Home;
