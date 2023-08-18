@@ -298,24 +298,30 @@ const IndexPage: React.FC<PageProps> = () => {
     return currentYear - 2016;
   }
 
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      const intersecting = entry.isIntersecting;
-
-      if (intersecting) {
-        setTimeout(() => {
-          if (highliterRef.current && subHighliterRef.current) {
-            highliterRef.current.style.display = 'block';
-            subHighliterRef.current.style.display = 'block';
+  const setupObserver = () => {
+    if (window) {
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          const intersecting = entry.isIntersecting;
+    
+          if (intersecting) {
+            setTimeout(() => {
+              if (highliterRef.current && subHighliterRef.current) {
+                highliterRef.current.style.display = 'block';
+                subHighliterRef.current.style.display = 'block';
+              }
+            }, 300);
           }
-        }, 300);
-      }
-    })
-  }, { threshold: 1 });
+        })
+      }, { threshold: 1 });
+  
+      observer.observe(projectTitleRef.current);
+    }
+  }
 
   useEffect(() => {
     if (projectTitleRef.current) {
-      observer.observe(projectTitleRef.current);
+      setupObserver();
     }
   }, []);
 
