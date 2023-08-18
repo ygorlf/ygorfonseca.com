@@ -397,7 +397,7 @@ const IndexPage: React.FC<PageProps> = () => {
             </Intro>
             <Paragraph>
               {/* BR - &#127463;&#127479;*/}
-              {/* US - &#127482;&#127480; */}
+              {/* US - &#127482;&#127480; */ }
               Hi, my name is Ygor! A brazilian developer writing poetry with pixels.
               <br />
               <PreviousJob>
@@ -445,8 +445,8 @@ const IndexPage: React.FC<PageProps> = () => {
             <ProjectInfo>
               <ProjectName>Stycker</ProjectName>
               <ProjectDescription>
-                Fancy whiteboard where performance meets simplicity, beautifully built using top tier technology like <span>canvas</span>,
-                <span>react</span>, <span>mobx</span> and a little bit of math. &#128151;
+                Fancy whiteboard where performance meets simplicity, beautifully built using top tier technologies like 
+                <span>React</span>, <span>Mobx</span>, <span>Typescript</span>, <span>Canvas</span> and a little bit of math. &#128151;
               </ProjectDescription>
               <ProjectLink target='_blank' href='https://stycker.netlify.app/'>&#128279; <span>Try now</span></ProjectLink>
             </ProjectInfo>
