@@ -1,6 +1,7 @@
-import * as React from 'react';
+import React, { useEffect, useRef } from 'react';
 import type { HeadFC, PageProps } from 'gatsby';
 import styled, { keyframes } from 'styled-components';
+import { Helmet } from 'react-helmet';
 
 import './global.css';
 
@@ -48,13 +49,13 @@ const Title = styled.h1`
   margin: 0;
   margin-bottom: 0.75rem;
   color: #505050;
-  font: 700 2.5rem 'Montserrat', sans-serif;
+  font: 700 2.5rem 'Nunito', sans-serif;
 `;
 
 const Paragraph = styled.p`
   max-width: 350px;
   color: #505050;
-  font: 400 1.1rem 'Montserrat', sans-serif;
+  font: 400 1.1rem 'Roboto', sans-serif;
   line-height: 1.5;
 `;
 
@@ -100,7 +101,7 @@ const DocumentLink = styled.a`
   border: 2px solid transparent;
   cursor: pointer;
   color: #fff;
-  font: 400 0.9rem 'Montserrat', sans-serif;
+  font: 400 0.9rem 'Roboto', sans-serif;
   transition: all .2s ease-in;
   background: #F11A7B;
 
@@ -158,73 +159,115 @@ const ProjectsSection = styled.section`
   height: 100vh;
 `;
 
-const ProjectTitle = styled.h2`
-  position: relative;
-  display: inline-block;
-  margin-bottom: 0;
-  color: #000;
-  font: 700 2.5rem 'Montserrat', sans-serif;
-
-  &::before {
-    content: '';
-    display: block;
-    position: absolute;
-    top: -1px;
-    left: -1px;
+const TitleAnimation = keyframes`
+  0% {
+    width: 0
+  }
+  100% {
     width: 100%;
-    height: 120%;
-    margin-left: -3px;
-    margin-right: -3px;
-    background: #ffd500;
-    transform: rotate(-2deg);
-    border-radius: 20% 25% 20% 24%;
-    padding: 10px 3px 3px 10px;
-    z-index: -1;
   }
 `;
 
-const Slogan = styled.h2`
-  position: relative;
-  text-align: center;
-  color: #000;
-  font: 700 1.5rem 'Montserrat', sans-serif;
-
-  &::before {
-    content: '';
-    display: block;
-    position: absolute;
-    top: -1px;
-    left: 50%;
+const SubTitleAnimation = keyframes`
+  0% {
+    width: 0
+  }
+  100% {
     width: 70%;
-    height: 125%;
-    margin-left: -3px;
-    margin-right: -3px;
-    background: #F11A7B;
-    transform: rotate(-2deg);
-    border-radius: 20% 25% 20% 24%;
-    padding: 10px 3px 3px 10px;
-    transform: translateX(-50%);
-    z-index: -1;
   }
 `;
 
-const ProjectItem = styled.div`
+const TitleGroup = styled.hgroup`
   display: flex;
   flex-direction: column;
   align-items: center;
 `;
 
+const ProjectTitle = styled.h2`
+  position: relative;
+  display: block;
+  margin-bottom: 0;
+  color: #000;
+  font: 700 2.5rem 'Nunito', sans-serif;
+`;
+
+const Highliter = styled.span`
+  display: none;
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  width: 100%;
+  height: 120%;
+  margin-left: -3px;
+  margin-right: -3px;
+  background: #ffd500;
+  transform: rotate(-2deg);
+  border-radius: 20% 25% 20% 24%;
+  padding: 10px 3px 3px 10px;
+  animation: ${TitleAnimation} 0.6s 1 alternate ease-in;
+  z-index: -1;
+`;
+
+const SubHighliter = styled.span`
+  display: none;
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  width: 100%;
+  height: 125%;
+  margin-left: -3px;
+  margin-right: -3px;
+  background: #F11A7B;
+  transform: rotate(-2deg);
+  border-radius: 20% 25% 20% 24%;
+  padding: 10px 3px 3px 10px;
+  animation: ${SubTitleAnimation} 0.6s 1 alternate ease-in;
+  z-index: -1;
+`;
+
+const Slogan = styled.h2`
+  display: inline-block;
+  position: relative;
+  text-align: center;
+  color: #000;
+  font: 700 1.25rem 'Nunito', sans-serif;
+`;
+
+const ProjectItem = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  margin: 0 auto;
+`;
+
 const ProjectImage = styled.img`
-  height: 275px;
+  display: inline-block;
+  width: 80%;
   border-radius: 5px;
-  border: 3px solid #6528F7;
+  border: 2px solid #ffd500;
+`;
+
+const ProjectInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 80%;
 `;
 
 const ProjectName = styled.a`
-  margin: 1rem 0 0.25rem;
+  width: 22%;
+  margin: 2rem 0 1.75rem;
   color: #000;
   cursor: pointer;
-  font: 700 1.5rem 'Montserrat', sans-serif;
+  border-bottom: 2px solid #ffd500;
+  font: 700 1.5rem 'Nunito', sans-serif;
+`;
+
+const ProjectDescription = styled.p`
+  margin: 0;
+  color: #000;
+  font: 400 1rem 'Roboto', sans-serif;
 `;
 
 const TagsList = styled.ul`
@@ -244,13 +287,48 @@ const Tag = styled.li`
 `;
 
 const IndexPage: React.FC<PageProps> = () => {
+  const projectTitleRef = useRef<HTMLHeadingElement>(null);
+  const projectSubtitleRef = useRef<HTMLHeadingElement>(null);
+  const highliterRef = useRef<HTMLSpanElement>(null);
+  const subHighliterRef = useRef<HTMLSpanElement>(null);
+
   const getWorkExperience = () => {
     const currentYear = new Date().getFullYear();
     return currentYear - 2016;
   }
 
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      const intersecting = entry.isIntersecting;
+
+      if (intersecting) {
+        setTimeout(() => {
+          if (highliterRef.current && subHighliterRef.current) {
+            highliterRef.current.style.display = 'block';
+            subHighliterRef.current.style.display = 'block';
+          }
+        }, 300);
+      }
+    })
+  }, { threshold: 1 });
+
+  useEffect(() => {
+    if (projectTitleRef.current) {
+      observer.observe(projectTitleRef.current);
+    }
+  }, []);
+
   return (
     <main>
+      <Helmet>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet" />
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+      </Helmet>
       <About>
         <InnerContainer>
           <Me src={me} />
@@ -307,26 +385,28 @@ const IndexPage: React.FC<PageProps> = () => {
         </NextSection>
       </About>
       <ProjectsSection id='projects'>
-        <hgroup>
-          <ProjectTitle>
+        <TitleGroup>
+          <ProjectTitle
+            ref={projectTitleRef}
+          >
             Cool things I've built!
+            <Highliter ref={highliterRef} />
           </ProjectTitle>
-          <Slogan>
+          <Slogan ref={projectSubtitleRef}>
             See my skills in action!
+            <SubHighliter ref={subHighliterRef} />
           </Slogan>
-        </hgroup>
+        </TitleGroup>
 
         <ProjectItem>
           <ProjectImage src={board} />
-          <ProjectName>React Board</ProjectName>
-          <TagsList>
-            <Tag>React</Tag>
-            <Tag>Canvas</Tag>
-            <Tag>MobX</Tag>
-          </TagsList>
+          <ProjectInfo>
+            <ProjectName>React Board</ProjectName>
+            <ProjectDescription>
+              An elegant board built in react, mobx and HTML5 Canvas.
+            </ProjectDescription>
+          </ProjectInfo>
         </ProjectItem>
-
-        <span></span>
       </ProjectsSection>
     </main>
   )
