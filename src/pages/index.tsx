@@ -38,6 +38,7 @@ const Header = styled.header`
   align-items: center;
   width: 100%;
   height: 4rem;
+  padding: 0 1%;
 `;
 
 const SocialLinks = styled.ul`
@@ -58,7 +59,7 @@ const About = styled.section`
   align-items: center;
   flex-direction: column;
   width: 100%;
-  height: 100vh;
+  height: calc(100vh - 4rem);
 `;
 
 const InnerContainer = styled.div`
@@ -287,9 +288,16 @@ const ProjectName = styled.a`
 const ProjectDescription = styled.p`
   width: 70%;
   margin: 0;
-  color: #000;
-  font: 400 1rem 'Roboto', sans-serif;
+  color: #505050;
+  font: 400 1.15rem 'Roboto', sans-serif;
   line-height: 1.5;
+
+  span {
+    display: inline-block;
+    margin: 0 3px;
+    color: #F11A7B;
+    text-decoration: underline;
+  }
 `;
 
 const IndexPage: React.FC<PageProps> = () => {
@@ -415,8 +423,8 @@ const IndexPage: React.FC<PageProps> = () => {
             <ProjectInfo>
               <ProjectName target='_blank' href='https://stycker.netlify.app/'>Stycker</ProjectName>
               <ProjectDescription>
-                Fancy whiteboard where performance meets simplicity, beautifully built using top tier technology like html5 canvas,
-                react, mobx and a little bit of math. &#128151;
+                Fancy whiteboard where performance meets simplicity, beautifully built using top tier technology like <span>html5 canvas</span>,
+                <span>react</span>, <span>mobx</span> and a little bit of math. &#128151;
               </ProjectDescription>
             </ProjectInfo>
           </ProjectItem>
