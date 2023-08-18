@@ -38,7 +38,7 @@ const Header = styled.header`
   align-items: center;
   width: 100%;
   height: 4rem;
-  padding: 0 1%;
+  padding: 0 2rem;
 `;
 
 const SocialLinks = styled.ul`
@@ -51,6 +51,11 @@ const SocialLinks = styled.ul`
 const SocialLink = styled.a`
   display: inline-block;
   margin: 0 0.5rem;
+`;
+
+const Main = styled.main`
+  width: 100%;
+  padding-bottom: 3rem;
 `;
 
 const About = styled.section`
@@ -130,7 +135,7 @@ const PreviousCompany = styled.a`
 
 const Documents = styled.div`
   display: flex;
-  margin-top: 6rem;
+  margin-top: 5vh;
 `;
 
 const DocumentLink = styled.a`
@@ -197,8 +202,8 @@ const ProjectsSection = styled.section`
   align-items: center;
   flex-direction: column;
   width: 100%;
-  height: 100vh;
-  padding: 0 0 4rem;
+  min-height: 100vh;
+  padding: 2rem 0;
 `;
 
 const TitleGroup = styled.hgroup`
@@ -272,16 +277,14 @@ const ProjectImage = styled.img`
 `;
 
 const ProjectInfo = styled.div`
-  display: flex;
-  flex-direction: column;
   width: 75%;
 `;
 
 const ProjectName = styled.a`
+  display: inline-block;
   margin: 2rem 0 1.25rem;
   color: #F11A7B;
   cursor: pointer;
-  text-decoration: underline;
   font: 700 1.5rem 'Nunito', sans-serif;
 `;
 
@@ -296,7 +299,21 @@ const ProjectDescription = styled.p`
     display: inline-block;
     margin: 0 3px;
     color: #F11A7B;
+    font-style: italic;
+  }
+`;
+
+const ProjectLink = styled.a`
+  display: inline-block;
+  margin: 1rem 0;
+  color: #505050;
+  font: 400 1rem 'Roboto', sans-serif;
+  font-style: italic;
+  cursor: pointer;
+  
+  span {
     text-decoration: underline;
+    color: #F11A7B;
   }
 `;
 
@@ -353,7 +370,7 @@ const IndexPage: React.FC<PageProps> = () => {
           </SocialLink>
         </SocialLinks>
       </Header>
-      <main>
+      <Main>
         <Helmet>
           <meta lang='en-us' />
           <meta charSet='utf-8' />
@@ -421,15 +438,16 @@ const IndexPage: React.FC<PageProps> = () => {
           <ProjectItem>
             <ProjectImage src={board} />
             <ProjectInfo>
-              <ProjectName target='_blank' href='https://stycker.netlify.app/'>Stycker</ProjectName>
+              <ProjectName>Stycker</ProjectName>
               <ProjectDescription>
-                Fancy whiteboard where performance meets simplicity, beautifully built using top tier technology like <span>html5 canvas</span>,
+                Fancy whiteboard where performance meets simplicity, beautifully built using top tier technology like <span>canvas</span>,
                 <span>react</span>, <span>mobx</span> and a little bit of math. &#128151;
               </ProjectDescription>
+              <ProjectLink target='_blank' href='https://stycker.netlify.app/'>&#128279; <span>Try now</span></ProjectLink>
             </ProjectInfo>
           </ProjectItem>
         </ProjectsSection>
-      </main>
+      </Main>
     </>
   )
 }
