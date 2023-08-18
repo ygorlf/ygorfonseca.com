@@ -14,27 +14,61 @@ import Arrow from '../components/arrow';
 import Github from '../components/github';
 import Linkedin from '../components/linkedin';
 
+const TitleAnimation = keyframes`
+  0% {
+    width: 0
+  }
+  100% {
+    width: 100%;
+  }
+`;
+
+const SubTitleAnimation = keyframes`
+  0% {
+    width: 0
+  }
+  100% {
+    width: 70%;
+  }
+`;
+
+const Header = styled.header`
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  width: 100%;
+  height: 4rem;
+`;
+
+const SocialLinks = styled.ul`
+  display: flex;
+  align-items: center;
+  padding: 0;
+  list-style: none;
+`;
+
+const SocialLink = styled.a`
+  display: inline-block;
+  margin: 0 0.5rem;
+`;
+
 const About = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
 `;
 
 const InnerContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 50%;
   max-width: 1110px;
   margin: 0 auto;
 `;
 
 const Intro = styled.div`
   display: flex;
-  flex-direction: column;
+  align-items: center;
 `;
 
 const Me = styled.img`
@@ -45,6 +79,24 @@ const Me = styled.img`
   box-shadow: 10px 10px 0 #F11A7B;
 `;
 
+const Marker = styled.span`
+  position: relative;
+`;
+
+const MarkerHighlight = styled.marker`
+  display: inline-block;
+  position: absolute;
+  top: -1px;
+  left: -2.5%;
+  width: 105%;
+  height: 100%;;
+  border-radius: 20% 25% 20% 24%;
+  transform: rotate(-1.5deg);
+  background: #FFBFBF;
+  animation: ${TitleAnimation} 0.6s 1 alternate ease-in;
+  z-index: -1;
+`;
+
 const Title = styled.h1`
   margin: 0;
   margin-bottom: 0.75rem;
@@ -53,9 +105,11 @@ const Title = styled.h1`
 `;
 
 const Paragraph = styled.p`
-  max-width: 350px;
+  width: 100%;
+  margin: 4rem auto 0;
   color: #505050;
-  font: 400 1.1rem 'Roboto', sans-serif;
+  text-align: center;
+  font: 400 1.25rem 'Roboto', sans-serif;
   line-height: 1.5;
 `;
 
@@ -71,21 +125,6 @@ const PreviousCompany = styled.a`
   &:hover {
     border-bottom: 2px solid #F11A7B;
   }
-`;
-
-const SocialLinks = styled.ul`
-  position: absolute;
-  top: 0.25rem;
-  right: 1rem;
-  display: flex;
-  align-items: center;
-  padding: 0;
-  list-style: none;
-`;
-
-const SocialLink = styled.a`
-  display: inline-block;
-  margin: 0 0.5rem;
 `;
 
 const Documents = styled.div`
@@ -156,27 +195,9 @@ const ProjectsSection = styled.section`
   display: flex;
   align-items: center;
   flex-direction: column;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   padding: 0 0 4rem;
-`;
-
-const TitleAnimation = keyframes`
-  0% {
-    width: 0
-  }
-  100% {
-    width: 100%;
-  }
-`;
-
-const SubTitleAnimation = keyframes`
-  0% {
-    width: 0
-  }
-  100% {
-    width: 70%;
-  }
 `;
 
 const TitleGroup = styled.hgroup`
@@ -197,15 +218,14 @@ const Highliter = styled.span`
   display: none;
   position: absolute;
   top: -1px;
-  left: -1px;
-  width: 100%;
+  left: -5%;
+  width: 110%;
   height: 120%;
   margin-left: -3px;
   margin-right: -3px;
   background: #ffd500;
   transform: rotate(-2deg);
   border-radius: 20% 25% 20% 24%;
-  padding: 10px 3px 3px 10px;
   animation: ${TitleAnimation} 0.6s 1 alternate ease-in;
   z-index: -1;
 `;
@@ -214,15 +234,14 @@ const SubHighliter = styled.span`
   display: none;
   position: absolute;
   top: -1px;
-  left: -1px;
-  width: 100%;
+  left: -5%;
+  width: 110%;
   height: 125%;
   margin-left: -3px;
   margin-right: -3px;
-  background: #F11A7B;
+  background: #FFBFBF;
   transform: rotate(-2deg);
   border-radius: 20% 25% 20% 24%;
-  padding: 10px 3px 3px 10px;
   animation: ${SubTitleAnimation} 0.6s 1 alternate ease-in;
   z-index: -1;
 `;
@@ -246,7 +265,7 @@ const ProjectItem = styled.div`
 
 const ProjectImage = styled.img`
   display: inline-block;
-  width: 75%;
+  height: 50vh;
   border-radius: 5px;
   border: 2px solid #ffd500;
 `;
@@ -259,39 +278,23 @@ const ProjectInfo = styled.div`
 
 const ProjectName = styled.a`
   margin: 2rem 0 1.25rem;
-  color: #000;
+  color: #F11A7B;
   cursor: pointer;
   text-decoration: underline;
   font: 700 1.5rem 'Nunito', sans-serif;
 `;
 
 const ProjectDescription = styled.p`
+  width: 70%;
   margin: 0;
   color: #000;
   font: 400 1rem 'Roboto', sans-serif;
-`;
-
-const TagsList = styled.ul`
-  display: flex;
-  flex-wrap: wrap;
-  list-style: none;
-  padding: 0;
-`;
-
-const Tag = styled.li`
-  margin: 0 0.5rem;
-  padding: 0.5rem;
-  color: #fff;
-  font: 400 0.95rem 'Montserrat', sans-serif;
-  border-radius: 1rem;
-  background: #6528F7;
+  line-height: 1.5;
 `;
 
 const IndexPage: React.FC<PageProps> = () => {
   const projectTitleRef = useRef<HTMLHeadingElement>(null);
-  const projectSubtitleRef = useRef<HTMLHeadingElement>(null);
   const highliterRef = useRef<HTMLSpanElement>(null);
-  const subHighliterRef = useRef<HTMLSpanElement>(null);
 
   const getWorkExperience = () => {
     const currentYear = new Date().getFullYear();
@@ -303,18 +306,17 @@ const IndexPage: React.FC<PageProps> = () => {
       const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
           const intersecting = entry.isIntersecting;
-    
+
           if (intersecting) {
             setTimeout(() => {
-              if (highliterRef.current && subHighliterRef.current) {
+              if (highliterRef.current) {
                 highliterRef.current.style.display = 'block';
-                subHighliterRef.current.style.display = 'block';
               }
             }, 300);
           }
         })
       }, { threshold: 1 });
-  
+
       observer.observe(projectTitleRef.current);
     }
   }
@@ -326,38 +328,8 @@ const IndexPage: React.FC<PageProps> = () => {
   }, []);
 
   return (
-    <main>
-      <Helmet>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet" />
-
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
-      </Helmet>
-      <About>
-        <InnerContainer>
-          <Me src={me} />
-          <Intro>
-            <Title>
-              Ygor Fonseca
-            </Title>
-            <Paragraph>
-              Front-End Specialist delivering digital products for {getWorkExperience()} years. React and coffee lover.
-              <br />
-              <PreviousJob>
-                Former Co-Founder at
-                <PreviousCompany
-                  href="https://www.1sti.com.br/"
-                  target='_blank'
-                >
-                  1STi
-                </PreviousCompany>
-              </PreviousJob>
-            </Paragraph>
-          </Intro>
-        </InnerContainer>
+    <>
+      <Header>
         <SocialLinks>
           <SocialLink
             href='https://github.com/ygorlf/'
@@ -372,50 +344,85 @@ const IndexPage: React.FC<PageProps> = () => {
             <Linkedin />
           </SocialLink>
         </SocialLinks>
-        <Documents>
-          <DocumentLink
-            href='/resume.pdf'
-            download="Ygor_Fonseca_Resume.pdf"
-          >
-            Resume
-          </DocumentLink>
-          <DocumentLink
-            href='/cover-letter.pdf'
-            download="Ygor_Fonseca_Letter.pdf"
-          >
-            Cover Letter
-          </DocumentLink>
-        </Documents>
+      </Header>
+      <main>
+        <Helmet>
+          <meta lang='en-us' />
+          <meta charSet='utf-8' />
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+          <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet" />
 
-        <NextSection href='#projects'>
-          <Arrow fill='#F11A7B' />
-        </NextSection>
-      </About>
-      <ProjectsSection id='projects'>
-        <TitleGroup>
-          <ProjectTitle
-            ref={projectTitleRef}
-          >
-            Cool things I've built!
-            <Highliter ref={highliterRef} />
-          </ProjectTitle>
-          <Slogan ref={projectSubtitleRef}>
-            See my skills in action!
-            <SubHighliter ref={subHighliterRef} />
-          </Slogan>
-        </TitleGroup>
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+          <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+        </Helmet>
+        <About>
+          <InnerContainer>
+            <Intro>
+              <Me src={me} />
+              <Title>
+                Front-end Engineer <br /> transforming ideas into <br /> <Marker>impactful digital experiences<MarkerHighlight />.</Marker>
+              </Title>
+            </Intro>
+            <Paragraph>
+              {/* BR - &#127463;&#127479;*/}
+              {/* US - &#127482;&#127480; */}
+              Hi, my name is Ygor! A brazilian developer writing poetry with pixels.
+              <br />
+              <PreviousJob>
+                Former Co-Founder at
+                <PreviousCompany
+                  href="https://www.1sti.com.br/"
+                  target='_blank'
+                >
+                  1STi
+                </PreviousCompany>.
+              </PreviousJob>
+            </Paragraph>
+          </InnerContainer>
+          <Documents>
+            <DocumentLink
+              href='/resume.pdf'
+              download="Ygor_Fonseca_Resume.pdf"
+            >
+              Resume
+            </DocumentLink>
+            <DocumentLink
+              href='/cover-letter.pdf'
+              download="Ygor_Fonseca_Letter.pdf"
+            >
+              Cover Letter
+            </DocumentLink>
+          </Documents>
 
-        <ProjectItem>
-          <ProjectImage src={board} />
-          <ProjectInfo>
-            <ProjectName target='_blank' href='https://stycker.netlify.app/'>Stycker</ProjectName>
-            <ProjectDescription>
-              An elegant board built in react, mobx and HTML5 Canvas.
-            </ProjectDescription>
-          </ProjectInfo>
-        </ProjectItem>
-      </ProjectsSection>
-    </main>
+          <NextSection href='#projects'>
+            <Arrow fill='#F11A7B' />
+          </NextSection>
+        </About>
+        <ProjectsSection id='projects'>
+          <TitleGroup>
+            <ProjectTitle
+              ref={projectTitleRef}
+            >
+              Cool things I've built!
+              <Highliter ref={highliterRef} />
+            </ProjectTitle>
+          </TitleGroup>
+
+          <ProjectItem>
+            <ProjectImage src={board} />
+            <ProjectInfo>
+              <ProjectName target='_blank' href='https://stycker.netlify.app/'>Stycker</ProjectName>
+              <ProjectDescription>
+                Fancy whiteboard where performance meets simplicity, beautifully built using top tier technology like html5 canvas,
+                react, mobx and a little bit of math. &#128151;
+              </ProjectDescription>
+            </ProjectInfo>
+          </ProjectItem>
+        </ProjectsSection>
+      </main>
+    </>
   )
 }
 
