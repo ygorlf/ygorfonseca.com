@@ -74,9 +74,11 @@ const PreviousCompany = styled.a`
 `;
 
 const SocialLinks = styled.ul`
+  position: absolute;
+  top: 0.25rem;
+  right: 1rem;
   display: flex;
   align-items: center;
-  margin-top: 2.5rem;
   padding: 0;
   list-style: none;
 `;
@@ -152,11 +154,11 @@ const NextSection = styled.a`
 
 const ProjectsSection = styled.section`
   display: flex;
-  justify-content: space-between;
   align-items: center;
   flex-direction: column;
   width: 100vw;
   height: 100vh;
+  padding: 0 0 4rem;
 `;
 
 const TitleAnimation = keyframes`
@@ -239,12 +241,12 @@ const ProjectItem = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 80%;
-  margin: 0 auto;
+  margin: 7rem auto 0;
 `;
 
 const ProjectImage = styled.img`
   display: inline-block;
-  width: 80%;
+  width: 75%;
   border-radius: 5px;
   border: 2px solid #ffd500;
 `;
@@ -252,15 +254,14 @@ const ProjectImage = styled.img`
 const ProjectInfo = styled.div`
   display: flex;
   flex-direction: column;
-  width: 80%;
+  width: 75%;
 `;
 
 const ProjectName = styled.a`
-  width: 22%;
-  margin: 2rem 0 1.75rem;
+  margin: 2rem 0 1.25rem;
   color: #000;
   cursor: pointer;
-  border-bottom: 2px solid #ffd500;
+  text-decoration: underline;
   font: 700 1.5rem 'Nunito', sans-serif;
 `;
 
@@ -401,7 +402,7 @@ const IndexPage: React.FC<PageProps> = () => {
         <ProjectItem>
           <ProjectImage src={board} />
           <ProjectInfo>
-            <ProjectName>React Board</ProjectName>
+            <ProjectName target='_blank' href='https://stycker.netlify.app/'>Stycker</ProjectName>
             <ProjectDescription>
               An elegant board built in react, mobx and HTML5 Canvas.
             </ProjectDescription>

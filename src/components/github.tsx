@@ -3,10 +3,10 @@ import React from 'react';
 const Github = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    width={48}
-    height={48}
+    width={24}
+    height={24}
     fill="none"
-    viewBox="-0.5 -0.5 48 48"
+    viewBox="0 0 48 48"
   >
     <path
       fill="#F11A7B"
