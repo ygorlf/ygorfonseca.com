@@ -23,15 +23,6 @@ const TitleAnimation = keyframes`
   }
 `;
 
-const SubTitleAnimation = keyframes`
-  0% {
-    width: 0
-  }
-  100% {
-    width: 70%;
-  }
-`;
-
 const Header = styled.header`
   display: flex;
   justify-content: end;
@@ -70,11 +61,17 @@ const About = styled.section`
 const InnerContainer = styled.div`
   max-width: 1110px;
   margin: 0 auto;
+  padding: 0 1.5rem;
 `;
 
 const Intro = styled.div`
   display: flex;
   align-items: center;
+
+  @media (max-width: 1023px) {
+    flex-direction: column;
+    justify-content: center;
+  }
 `;
 
 const Me = styled.img`
@@ -83,6 +80,10 @@ const Me = styled.img`
   height: 200px;
   margin-right: 3rem;
   box-shadow: 10px 10px 0 #F11A7B;
+
+  @media (max-width: 1023px) {
+    margin-bottom: 4rem;
+  }
 `;
 
 const Marker = styled.span`
@@ -108,6 +109,15 @@ const Title = styled.h1`
   margin-bottom: 0.75rem;
   color: #505050;
   font: 700 2.5rem 'Nunito', sans-serif;
+
+  @media (max-width: 1023px) {
+    text-align: center;
+    font-size: 2rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.5rem;
+  }
 `;
 
 const Paragraph = styled.p`
@@ -117,11 +127,20 @@ const Paragraph = styled.p`
   text-align: center;
   font: 400 1.25rem 'Roboto', sans-serif;
   line-height: 1.5;
+
+  @media (max-width: 1023px) {
+    font-size: 1rem;
+  }
 `;
 
 const PreviousJob = styled.span`
   display: block;
   margin-top: 0.75rem;
+  font-size: 1rem;
+
+  @media (max-width: 1023px) {
+    font-size: .85rem;
+  }
 `;
 
 const PreviousCompany = styled.a`
@@ -195,6 +214,10 @@ const NextSection = styled.a`
   svg {
     filter: drop-shadow(2px 2px 2px #F11A7B);
   }
+
+  @media (max-width: 1023px) {
+    display: none;
+  }
 `;
 
 const ProjectsSection = styled.section`
@@ -202,7 +225,6 @@ const ProjectsSection = styled.section`
   align-items: center;
   flex-direction: column;
   width: 100%;
-  min-height: 100vh;
   padding: 2rem 0;
 `;
 
@@ -218,6 +240,14 @@ const ProjectTitle = styled.h2`
   margin-bottom: 0;
   color: #000;
   font: 700 2.5rem 'Nunito', sans-serif;
+
+  @media (max-width: 1023px) {
+    font-size: 2rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.5rem;
+  }
 `;
 
 const Highliter = styled.span`
@@ -236,30 +266,6 @@ const Highliter = styled.span`
   z-index: -1;
 `;
 
-const SubHighliter = styled.span`
-  display: none;
-  position: absolute;
-  top: -1px;
-  left: -5%;
-  width: 110%;
-  height: 125%;
-  margin-left: -3px;
-  margin-right: -3px;
-  background: #FFBFBF;
-  transform: rotate(-2deg);
-  border-radius: 20% 25% 20% 24%;
-  animation: ${SubTitleAnimation} 0.6s 1 alternate ease-in;
-  z-index: -1;
-`;
-
-const Slogan = styled.h2`
-  display: inline-block;
-  position: relative;
-  text-align: center;
-  color: #000;
-  font: 700 1.25rem 'Nunito', sans-serif;
-`;
-
 const ProjectItem = styled.div`
   display: flex;
   flex-direction: column;
@@ -274,10 +280,19 @@ const ProjectImage = styled.img`
   height: 50vh;
   border-radius: 5px;
   border: 2px solid #ffd500;
+
+  @media (max-width: 1023px) {
+    width: 100%;
+    height: auto;
+  }
 `;
 
 const ProjectInfo = styled.div`
   width: 75%;
+
+  @media (max-width: 1023px) {
+    width: 100%;
+  }
 `;
 
 const ProjectName = styled.a`
@@ -286,6 +301,10 @@ const ProjectName = styled.a`
   color: #F11A7B;
   cursor: pointer;
   font: 700 1.5rem 'Nunito', sans-serif;
+
+  @media (max-width: 1023px) {
+    font-size: 1.25rem;
+  }
 `;
 
 const ProjectDescription = styled.p`
@@ -300,6 +319,11 @@ const ProjectDescription = styled.p`
     margin: 0 3px;
     color: #F11A7B;
     font-style: italic;
+  }
+
+  @media (max-width: 1023px) {
+    width: 100%;
+    font-size: 1rem;
   }
 `;
 
