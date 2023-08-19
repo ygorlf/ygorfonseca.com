@@ -76,7 +76,7 @@ const Header: React.FC<PageProps> = () => (
             style={{ textDecoration: 'none', color: 'inherit' }}
             activeStyle={{ color: '#F11A7B', textDecoration: 'underline' }}
           >
-            Home
+            About
           </Link>
         </NavLink>
         <NavLink>

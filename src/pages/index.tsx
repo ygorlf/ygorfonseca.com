@@ -163,8 +163,8 @@ const IndexPage: React.FC<PageProps> = () => {
     <Layout>
       <SEO
         lang='en'
-        title='Ygor Fonseca - Front End Engineer'
-        ogTitle='Ygor Fonseca - Front End Engineer'
+        title='Ygor Fonseca - About'
+        ogTitle='Ygor Fonseca - About'
         description='Front-end Engineer transforming ideas into impactful digital experiences.'
         canonicalLink='https://www.ygorfonseca.com/'
       />
