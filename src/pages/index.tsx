@@ -30,6 +30,10 @@ const Header = styled.header`
   width: 100%;
   height: 4rem;
   padding: 0 2rem;
+
+  @media (max-width: 1023px) {
+    padding: 0 1.5rem;
+  }
 `;
 
 const SocialLinks = styled.ul`
@@ -82,6 +86,7 @@ const Me = styled.img`
   box-shadow: 10px 10px 0 #F11A7B;
 
   @media (max-width: 1023px) {
+    margin-right: 0;
     margin-bottom: 4rem;
   }
 `;
