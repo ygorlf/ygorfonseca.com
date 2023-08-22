@@ -42,10 +42,15 @@ const Nav = styled.nav`
   margin-right: 2rem;
 `;
 
-const NavLink = styled.span`
-  margin: 0 .5rem;
+const MenuLink = styled(Link)`
+  margin: 0 0.5rem;
   color: #505050;
-  font: 400 1.125rem 'Nunito', sans-serif;
+  font: 700 1.125rem 'Nunito', sans-serif;
+
+  &.active {
+    color: #F11A7B;
+    text-decoration: 'underline';
+  }
 `;
 
 const SocialLinks = styled.ul`
@@ -70,24 +75,18 @@ const Header: React.FC<PageProps> = () => (
         <Logo src={logo} />
       </Link>
       <Nav>
-        <NavLink>
-          <Link
-            to='/'
-            style={{ textDecoration: 'none', color: 'inherit' }}
-            activeStyle={{ color: '#F11A7B', textDecoration: 'underline' }}
-          >
-            About
-          </Link>
-        </NavLink>
-        <NavLink>
-          <Link
-            to='/projects/'
-            style={{ textDecoration: 'none', color: 'inherit' }}
-            activeStyle={{ color: '#F11A7B', textDecoration: 'underline' }}
-          >
-            Projects
-          </Link>
-        </NavLink>
+        <MenuLink
+          to='/'
+          activeClassName='active'
+        >
+          About
+        </MenuLink>
+        <MenuLink
+          to='/projects/'
+          activeClassName='active'
+        >
+          Projects
+        </MenuLink>
       </Nav>
       <SocialLinks>
         <SocialLink
