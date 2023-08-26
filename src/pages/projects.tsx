@@ -1,8 +1,7 @@
 import React from 'react';
 import type { PageProps } from 'gatsby';
 import styled, { keyframes } from 'styled-components';
-
-import board from '../images/board.png';
+import { StaticImage } from 'gatsby-plugin-image';
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';
@@ -20,8 +19,14 @@ const ProjectsSection = styled.section`
   display: flex;
   align-items: center;
   flex-direction: column;
-  width: 100%;
+  max-width: 886px;
+  width: 70%;
+  margin: 0 auto;
   padding: 2rem 0;
+
+  @media (max-width: 1023px) {
+    width: 80%;
+  }
 `;
 
 const TitleGroup = styled.hgroup`
@@ -66,24 +71,12 @@ const ProjectItem = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  width: 80%;
+  width: 100%;
   margin: 7rem auto 0;
 `;
 
-const ProjectImage = styled.img`
-  display: inline-block;
-  height: 50vh;
-  border-radius: 5px;
-  border: 2px solid #ffd500;
-
-  @media (max-width: 1023px) {
-    width: 100%;
-    height: auto;
-  }
-`;
-
 const ProjectInfo = styled.div`
-  width: 75%;
+  width: 100%;
 
   @media (max-width: 1023px) {
     width: 100%;
@@ -153,9 +146,18 @@ const ProjectsPage: React.FC<PageProps> = () => {
             <Highliter />
           </ProjectTitle>
         </TitleGroup>
-
         <ProjectItem>
-          <ProjectImage src={board} />
+          <StaticImage
+            src='../images/board.png'
+            alt='Canvas Whiteboard'
+            placeholder='blurred'
+            style={{
+              display: 'inline-block',
+              width: '100%',
+              border: '2px solid #ffd500',
+              borderRadius: '5px'
+            }}
+          />
           <ProjectInfo>
             <ProjectName>Stycker</ProjectName>
             <ProjectDescription>
