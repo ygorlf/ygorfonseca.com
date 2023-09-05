@@ -15,7 +15,7 @@ const Content = styled.header`
   width: 100%;
   height: 4rem;
   padding: 0 2rem;
-  background-color: #fff;
+  background-color: var(--color-background);
   box-shadow: 0 2px 4px #00000022;
   z-index: 1;
   
@@ -44,11 +44,11 @@ const Nav = styled.nav`
 
 const MenuLink = styled(Link)`
   margin: 0 0.5rem;
-  color: #505050;
+  color: var(--color-text);
   font: 700 1.125rem 'Nunito', sans-serif;
 
   &.active {
-    color: #F11A7B;
+    color: var(--color-highlight);
     text-decoration: 'underline';
   }
 `;
@@ -93,7 +93,7 @@ const Header: React.FC<PageProps> = () => (
           href='https://github.com/ygorlf/'
           target='_blank'
         >
-          <Github />
+          <Github/>
         </SocialLink>
         <SocialLink
           href='https://www.linkedin.com/in/ygorlf/'

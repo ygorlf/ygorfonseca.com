@@ -70,7 +70,7 @@ const MarkerHighlight = styled.marker`
   height: 100%;;
   border-radius: 20% 25% 20% 24%;
   transform: rotate(-1.5deg);
-  background: #FFBFBF;
+  background: var(--color-marker-home);
   animation: ${TitleAnimation} 0.6s 1 alternate ease-in;
   z-index: -1;
 `;
@@ -78,7 +78,7 @@ const MarkerHighlight = styled.marker`
 const Title = styled.h1`
   margin: 0;
   margin-bottom: 0.75rem;
-  color: #505050;
+  color: var(--color-text);
   font: 700 2.5rem 'Nunito', sans-serif;
 
   @media (max-width: 1023px) {
@@ -94,7 +94,7 @@ const Title = styled.h1`
 const Paragraph = styled.p`
   width: 100%;
   margin: 4rem auto 0;
-  color: #505050;
+  color: var(--color-text);
   text-align: center;
   font: 400 1.25rem 'Roboto', sans-serif;
   line-height: 1.5;
