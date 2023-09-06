@@ -1,5 +1,4 @@
 import React from 'react';
-import type { PageProps } from 'gatsby';
 import styled, { keyframes } from 'styled-components';
 import { StaticImage } from 'gatsby-plugin-image';
 
@@ -130,9 +129,9 @@ const ProjectLink = styled.a`
   }
 `;
 
-const ProjectsPage: React.FC<PageProps> = () => {
+const ProjectsPage = () => {
   return (
-    <Layout>
+    <>
       <SEO
         lang='en'
         title='Ygor Fonseca - Projects'
@@ -169,8 +168,9 @@ const ProjectsPage: React.FC<PageProps> = () => {
           </ProjectInfo>
         </ProjectItem>
       </ProjectsSection>
-    </Layout>
+    </>
   )
 }
 
-export default ProjectsPage
+ProjectsPage.Layout = Layout;
+export default ProjectsPage;

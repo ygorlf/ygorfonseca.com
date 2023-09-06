@@ -13,6 +13,7 @@ body {
   --color-background: #fff;
   --color-highlight: #F11A7B;
   --color-marker: #FFBFBF;
+  --color-shadow: #00000022;
 }
 
 html,

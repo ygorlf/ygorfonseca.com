@@ -1,5 +1,4 @@
 import React from 'react';
-import type { PageProps } from 'gatsby';
 import styled, { keyframes } from 'styled-components';
 
 import me from '../images/me.jpeg';
@@ -124,9 +123,9 @@ const PreviousCompany = styled.a`
   }
 `;
 
-const IndexPage: React.FC<PageProps> = () => {
+const IndexPage = () => {
   return (
-    <Layout>
+    <>
       <SEO
         lang='en'
         title='Ygor Fonseca - About'
@@ -161,8 +160,9 @@ const IndexPage: React.FC<PageProps> = () => {
           </Paragraph>
         </InnerContainer>
       </About>
-    </Layout>
+    </>
   )
 }
 
-export default IndexPage
+IndexPage.Layout = Layout;
+export default IndexPage;
