@@ -87,6 +87,7 @@ const ThemesList = styled.ul`
   list-style: none;
   box-shadow: 0 0px 4px var(--color-shadow);
   transform: translateX(-80%);
+  background: var(--color-background);
 `;
 
 const ThemeItem = styled.li`
