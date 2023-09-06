@@ -41,6 +41,7 @@ const ProjectTitle = styled.h2`
   margin-bottom: 0;
   color: var(--color-text);
   font: 700 2.5rem 'Nunito', sans-serif;
+  z-index: 0;
 
   @media (max-width: 1023px) {
     font-size: 2rem;
@@ -59,7 +60,7 @@ const Highliter = styled.span`
   height: 120%;
   margin-left: -3px;
   margin-right: -3px;
-  background: var(--color-marker-projects);
+  background: var(--color-marker);
   transform: rotate(-2deg);
   border-radius: 20% 25% 20% 24%;
   animation: ${TitleAnimation} 0.6s 1 alternate ease-in;
@@ -154,7 +155,7 @@ const ProjectsPage: React.FC<PageProps> = () => {
             style={{
               display: 'inline-block',
               width: '100%',
-              border: '2px solid #ffd500',
+              border: '2px solid var(--color-highlight)',
               borderRadius: '5px'
             }}
           />

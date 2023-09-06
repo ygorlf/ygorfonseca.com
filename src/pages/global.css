@@ -8,22 +8,53 @@ html {
   scroll-behavior: smooth;
 }
 
+body {
+  --color-text: #505050;
+  --color-background: #fff;
+  --color-highlight: #F11A7B;
+  --color-marker: #FFBFBF;
+}
+
 html,
 body {
   margin: 0;
   padding: 0;
 }
 
-:root {
+body.default {
   --color-text: #505050;
   --color-background: #fff;
   --color-highlight: #F11A7B;
-  --color-marker-home: #FFBFBF;
-  --color-marker-projects: #ffd500;
+  --color-marker: #FFBFBF;
+  --color-shadow: #00000022;
+}
+
+body.blueish {
+  --color-text: #505050;
+  --color-background: #F6F4EB;
+  --color-highlight: #4682A9;
+  --color-marker: #91C8E4;
+  --color-shadow: #00000022;
+}
+
+body.candy {
+  --color-text: #505050;
+  --color-background: #F4F2DE;
+  --color-highlight: #AB72C0;
+  --color-marker: #CBA1D2;
+  --color-shadow: #00000022;
+}
+
+body.dark {
+  --color-text: #EAE7AF;
+  --color-background: #202040;
+  --color-highlight: #A72693;
+  --color-marker: #A72693;
+  --color-shadow: #ffffff22;
 }
 
 a {
-  color: #F11A7B;
+  color: var(--color-highlight);
   cursor: pointer;
   text-decoration: none;
   transition: all .2s ease-in;
