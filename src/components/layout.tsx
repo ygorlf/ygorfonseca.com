@@ -7,11 +7,15 @@ import Header from './header';
 
 // Reset
 import '../pages/global.css';
+import Footer from './footer';
 
 // Styles
 const Container = styled.div`
   position: relative;
   width: 100%;
+  height: 100%;
+  background: var(--color-background);
+  overflow: hidden;
 `;
 
 const Layout = ({
@@ -21,6 +25,7 @@ const Layout = ({
     <Container>
       <Header />
       <main>{children}</main>
+      <Footer />
     </Container>
   )
 };

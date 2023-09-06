@@ -22,7 +22,7 @@ const About = styled.section`
   align-items: center;
   flex-direction: column;
   width: 100%;
-  height: calc(100vh - 4rem);
+  height: calc(100vh - 8rem);
 `;
 
 const InnerContainer = styled.div`
@@ -49,7 +49,7 @@ const Me = styled.img`
   width: auto;
   height: 180px;
   margin-right: 3rem;
-  box-shadow: 10px 10px 0 #F11A7B;
+  box-shadow: 10px 10px 0 var(--color-highlight);
 
   @media (max-width: 1023px) {
     margin-right: 0;
@@ -70,7 +70,7 @@ const MarkerHighlight = styled.marker`
   height: 100%;;
   border-radius: 20% 25% 20% 24%;
   transform: rotate(-1.5deg);
-  background: #FFBFBF;
+  background: var(--color-marker);
   animation: ${TitleAnimation} 0.6s 1 alternate ease-in;
   z-index: -1;
 `;
@@ -78,8 +78,9 @@ const MarkerHighlight = styled.marker`
 const Title = styled.h1`
   margin: 0;
   margin-bottom: 0.75rem;
-  color: #505050;
+  color: var(--color-text);
   font: 700 2.5rem 'Nunito', sans-serif;
+  z-index: 0;
 
   @media (max-width: 1023px) {
     text-align: center;
@@ -94,7 +95,7 @@ const Title = styled.h1`
 const Paragraph = styled.p`
   width: 100%;
   margin: 4rem auto 0;
-  color: #505050;
+  color: var(--color-text);
   text-align: center;
   font: 400 1.25rem 'Roboto', sans-serif;
   line-height: 1.5;
@@ -119,7 +120,7 @@ const PreviousCompany = styled.a`
   margin-left: 0.25rem;
 
   &:hover {
-    border-bottom: 2px solid #F11A7B;
+    border-bottom: 2px solid var(--color-highlight);
   }
 `;
 

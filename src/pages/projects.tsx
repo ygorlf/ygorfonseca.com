@@ -39,8 +39,9 @@ const ProjectTitle = styled.h2`
   position: relative;
   display: block;
   margin-bottom: 0;
-  color: #000;
+  color: var(--color-text);
   font: 700 2.5rem 'Nunito', sans-serif;
+  z-index: 0;
 
   @media (max-width: 1023px) {
     font-size: 2rem;
@@ -59,7 +60,7 @@ const Highliter = styled.span`
   height: 120%;
   margin-left: -3px;
   margin-right: -3px;
-  background: #ffd500;
+  background: var(--color-marker);
   transform: rotate(-2deg);
   border-radius: 20% 25% 20% 24%;
   animation: ${TitleAnimation} 0.6s 1 alternate ease-in;
@@ -86,7 +87,7 @@ const ProjectInfo = styled.div`
 const ProjectName = styled.a`
   display: inline-block;
   margin: 2rem 0 1.25rem;
-  color: #F11A7B;
+  color: var(--color-highlight);
   cursor: pointer;
   font: 700 1.5rem 'Nunito', sans-serif;
 
@@ -98,14 +99,14 @@ const ProjectName = styled.a`
 const ProjectDescription = styled.p`
   width: 70%;
   margin: 0;
-  color: #505050;
+  color: var(--color-text);
   font: 400 1.15rem 'Roboto', sans-serif;
   line-height: 1.5;
 
   span {
     display: inline-block;
     margin: 0 3px;
-    color: #F11A7B;
+    color: var(--color-highlight);
     font-style: italic;
   }
 
@@ -118,14 +119,14 @@ const ProjectDescription = styled.p`
 const ProjectLink = styled.a`
   display: inline-block;
   margin: 1rem 0;
-  color: #505050;
+  color: var(--color-text);
   font: 400 1rem 'Roboto', sans-serif;
   font-style: italic;
   cursor: pointer;
   
   span {
     text-decoration: underline;
-    color: #F11A7B;
+    color: var(--color-highlight);
   }
 `;
 
@@ -154,7 +155,7 @@ const ProjectsPage: React.FC<PageProps> = () => {
             style={{
               display: 'inline-block',
               width: '100%',
-              border: '2px solid #ffd500',
+              border: '2px solid var(--color-highlight)',
               borderRadius: '5px'
             }}
           />
