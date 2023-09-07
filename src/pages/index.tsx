@@ -100,6 +100,7 @@ const Paragraph = styled.p`
   line-height: 1.5;
 
   @media (max-width: 1023px) {
+    width: 100%;
     font-size: 1rem;
   }
 `;
