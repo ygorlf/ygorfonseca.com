@@ -96,7 +96,7 @@ const ProjectName = styled.a`
 `;
 
 const ProjectDescription = styled.p`
-  width: 70%;
+  width: 100%;
   margin: 0;
   color: var(--color-text);
   font: 400 1.15rem 'Roboto', sans-serif;
@@ -161,7 +161,7 @@ const ProjectsPage = () => {
           <ProjectInfo>
             <ProjectName>Stycker</ProjectName>
             <ProjectDescription>
-              Fancy whiteboard where performance meets simplicity, beautifully built using top tier technologies like
+              Fancy whiteboard built using cool technologies like
               <span>React</span>, <span>Mobx</span>, <span>Typescript</span>, <span>Canvas</span> and a little bit of math. &#128151;
             </ProjectDescription>
             <ProjectLink target='_blank' href='https://stycker.netlify.app/'>&#128279; <span>Try now</span></ProjectLink>

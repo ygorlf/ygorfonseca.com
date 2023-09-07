@@ -92,7 +92,7 @@ const Title = styled.h1`
 `;
 
 const Paragraph = styled.p`
-  width: 100%;
+  width: 70%;
   margin: 4rem auto 0;
   color: var(--color-text);
   text-align: center;
@@ -144,9 +144,9 @@ const IndexPage = () => {
           <Paragraph>
             {/* BR - &#127463;&#127479;*/}
             {/* US - &#127482;&#127480; */}
-            I fell in love with the web in 2013 and never looked back.
+            Spent several years shipping corporate products for the educational and healthcare industries using Javascript, React and React Native.
             <br />
-            Give life to web experiences it's my passion.
+            
             <br />
             <PreviousJob>
               Former Co-Founder at
